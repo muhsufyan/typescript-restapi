@@ -9,7 +9,7 @@ export async function createUserHandler(req:Request<{},{},CreateUserInput['body'
         // call create user service 
         const user = await createUser(req.body)
         // agar password tdk muncul saat response gunakan omit
-        return res.send(omit(user.toJSON(), "password"))
+        return res.send(user)
     } catch (e: any) {
         logger.error(e)
         // conflict, misal email tlh digunakan
