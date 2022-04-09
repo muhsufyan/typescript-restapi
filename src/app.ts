@@ -6,6 +6,7 @@ import routes from "./routes";
 // get() bertipe T yaitu genertic (dpt bertipe apapun), sehingga kita set tipenya number
 const port = config.get<number>('port')
 const app = express()
+app.use(express.json())
 
 // karena terkoneksi ke db jd asynchronous
 app.listen(port, async ()=>{

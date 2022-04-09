@@ -12,6 +12,7 @@ const validate = (schema: AnyZodObject) => (req: Request, res: Response, next: N
             // handle url param misal localhost/:id for catch id
             param: req.params
         })
+        next()
     } catch (error: any) {
         return res.status(400).send(error.errors)
     }
