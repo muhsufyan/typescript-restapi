@@ -1,4 +1,5 @@
 export default {
     port: 8000,
-    dbUri: "mongodb://localhost:27017/rest-api-typescript"
+    dbUri: "mongodb://localhost:27017/rest-api-typescript",
+    saltWorkFactor: 10,
 }
