@@ -14,17 +14,17 @@ export function signJwt(object:Object, options?: jwt.SignOptions | undefined) {
 // verifikasi token
 export function verifyJwt(token:string) {
     try {
-        const decode = jwt.verify(token, publicKey)
+        const decoded = jwt.verify(token, publicKey)
         return {
             valid: true,
-            expire: false,
-            decode 
+            expired: false,
+            decoded 
         }
     } catch (error: any) {
         return {
             valid: false,
-            expire: error.message === 'token is expire',
-            decode: null 
+            expired: error.message === 'token is expire',
+            decoded: null 
         }
     }
 }

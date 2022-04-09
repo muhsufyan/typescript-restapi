@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createSession } from "../service/session.service";
+import { createSession, findSession } from "../service/session.service";
 import { validatePassword } from "../service/user.service";
 import { signJwt } from "../utils/jwt.utils";
 import config from 'config'
@@ -31,4 +31,14 @@ export async function createUserSessionHandler(req:Request, res: Response) {
     )
     // 5. return akses & refresh token
     return res.send({accessToken, refreshToken})
+}
+
+export async function getUserSessionHandler(req:Request, res: Response) {
+    // get id user dr token. untuk mencegah jika id user tdk ada buat middleware 
+    const userId = res.locals.user._id
+    // console.log(userId)//debug
+    // jika data session tidak ingin ditampilkan / dikirim maka set valid : false
+    const sessions = await findSession({user: userId, valid: true })
+    // console.log({sessions}) //debug
+    return res.send(sessions)
 }
