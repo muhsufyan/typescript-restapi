@@ -7,5 +7,7 @@ module.exports = {
   verbose:true,
   // stlh selesai test auto keluar/exit
   forceExit:true,
-  // clearMocks: true //mocking untuk test
+  clearMocks: true, //mocking untuk test
+  resetMocks: true,
+  restoreMocks: true,
 };

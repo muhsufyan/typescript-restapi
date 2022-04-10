@@ -1,6 +1,6 @@
 # typescript-restapi
 https://www.youtube.com/watch?v=r5L1XRZaCR0<br>
-<h1>get product testing, product exist</h1>
+<h1>user test</h1>
 <ul>
-    <li>lakukan modifikasi pada product schema yaitu tambah | 'productId</li>
+    <li>buat src/__test__/user.test.ts</li>
 </ul>
