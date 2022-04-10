@@ -1,8 +1,10 @@
 import { Express, Request, Response } from "express";
+import { createProductHandler, deleteProductHandler, getProductHandler, updateProductHandler } from "./controller/product.controller";
 import { createUserSessionHandler, deleteSessionHandler, getUserSessionHandler } from "./controller/session.controller";
 import { createUserHandler } from "./controller/user.controller";
 import requireUser from "./middleware/requireUser";
 import validateResource from "./middleware/validateResource";
+import { createProductSchema, deleteProductSchema, getProductSchema, updateProductSchema } from "./schema/product.schema";
 import { createSessionSchema } from "./schema/session.schema";
 import { createUserSchema } from "./schema/user.schema";
 
@@ -12,5 +14,11 @@ function routes(app: Express) {
     app.post("/api/sessions", validateResource(createSessionSchema) ,createUserSessionHandler)
     app.get("/api/sessions", requireUser , getUserSessionHandler)
     app.delete("/api/sessions", requireUser, deleteSessionHandler)
+    // kita perlu menerapkan banyak middleware sehingga middleware dimasukkan kedlm array
+    app.post('/api/products', [requireUser, validateResource(createProductSchema)], createProductHandler)
+    app.put('/api/products/:productId', [requireUser, validateResource(updateProductSchema)], updateProductHandler)
+    app.get('/api/products/:productId', validateResource(getProductSchema), getProductHandler)
+    app.delete('/api/products/:productId', [requireUser, validateResource(deleteProductSchema)], deleteProductHandler)
+    app.get("/tes/:productId", (req: Request, res: Response)=>res.send(req.params.productId))
 }
 export default routes

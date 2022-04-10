@@ -10,7 +10,7 @@ const validate = (schema: AnyZodObject) => (req: Request, res: Response, next: N
             // handle query misal localhost?tag="satu" for catch tag="satu"
             query: req.query,
             // handle url param misal localhost/:id for catch id
-            param: req.params
+            params: req.params
         })
         next()
     } catch (error: any) {
