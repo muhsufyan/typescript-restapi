@@ -1,5 +1,25 @@
 import { number, object, string, TypeOf } from "zod";
-
+/**
+ * @openapi
+ * components:
+ *   schema:
+ *     Product:
+ *       type: object
+ *       required:
+ *        - title
+ *        - description
+ *        - price
+ *        - image
+ *       properties:
+ *         title:
+ *           type: string
+ *         description:
+ *           type: string
+ *         price:
+ *           type: number
+ *         image:
+ *           type: string
+ */
 const payload = {
     body: object({
         title: string({required_error: "title is required"}),
