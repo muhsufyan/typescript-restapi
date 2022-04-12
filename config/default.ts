@@ -23,6 +23,7 @@ D9yqi3Y/bSceAi1OwCOtAeD4XScoSgNaE/UoMLLNlpSybRZ7wsgBBDxuVyjulkAT
 8FJSKxRNhBSXiJihAkEAhg1BNnbomPUTw3FRTW7m8DwcexMYPioqhnsJzdFh2kT0
 zCKpbG3wBBKoc7E81xXxUjOGEs+kJWyZmvHETZhZfQ==
 -----END RSA PRIVATE KEY-----`,
+    useDatabase: "USE_DATABASE",
     // lama token expire (ttl/time to live)
     accessTokenTtl:'15m',
     // token refresh ttlnya 1 thn
