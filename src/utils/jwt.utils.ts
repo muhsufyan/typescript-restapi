@@ -13,6 +13,7 @@ export function signJwt(object:Object, options?: jwt.SignOptions | undefined) {
 }
 // verifikasi token
 export function verifyJwt(token:string) {
+    console.log(token)
     try {
         const decoded = jwt.verify(token, publicKey)
         return {

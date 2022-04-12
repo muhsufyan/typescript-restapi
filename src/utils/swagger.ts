@@ -12,10 +12,10 @@ const options: swaggerJsdoc.Options = {
         },
         // set up untuk otentifikasi
         components:{
-            securitySchemas: {
+            securitySchemes: {
                 bearerAuth:{
                     type:'http',
-                    schema:'bearer',
+                    scheme:'bearer',
                     bearerFormat:'JWT'
                 }
             }
